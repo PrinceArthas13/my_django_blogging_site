@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from django.contrib import admin
 
 
 urlpatterns = [
@@ -21,4 +22,8 @@ urlpatterns = [
 
     #127.0.0.1:8000/publish/(local)
     path('post/<int:pk>/publish/', views.post_publish, name="post_publish"),
+
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
+
