@@ -22,5 +22,7 @@ urlpatterns = [
     #127.0.0.1:8000/publish/(local)
     path('post/<int:pk>/publish/', views.post_publish, name="post_publish"),
 
+    #127.0.0.1:8000/post/2/comment(local)
+    path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
 ]
 
