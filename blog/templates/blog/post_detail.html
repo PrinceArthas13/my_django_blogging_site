@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% load markdownify %}
+
 {% block title %} {{ post.title }}{% endblock %}
 
 
@@ -20,7 +22,7 @@
         {% endif %}
 
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <p>{{ post.text| markdown | safe }}</p>
     </div>
 
     <hr>
@@ -41,7 +43,7 @@
                 {% endif %}
 
                 <strong>{{ comment.author }}</strong>
-                <p>{{ comment.text }}</p>
+                <p>{{ comment.text | markdown | safe | linebreaksbr }}</p>
             </div>
 
         {% endif %}
